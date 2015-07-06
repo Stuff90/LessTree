@@ -22,19 +22,27 @@
 	// Screen sizes
 	// --------------------------------
 
-	@desktop:         ~"only screen and (min-width: 1025px)";
-	@tablet:          ~"only screen and (max-width: 1024px)";
-	@tabletPortrait:  ~"only screen and (max-width: 768px)";
-	@mobile:          ~"only screen and (max-width: 640px)";
+ 	@maxWidth: 1200px;
 
-	@maxWidth: 1200px;
+    @maxWidthTabletLandscape: 	1024px;
+    @maxWidthTabletPortait: 	768px;
+    @maxWidthMobile: 			480px;
+
+    @desktopMargin: 40px;
+    @tabletMargin: 	20px;
+    @mobileMargin:	10px;
+
+    @desktop:         ~"only screen and (min-width:" (@maxWidth + (@desktopMargin * 2)) ~")";
+    @tabletLandscape: ~"only screen and (max-width:" (@maxWidth + (@desktopMargin * 2) - 1) ~")";
+    @tabletPortrait:  ~"only screen and (max-width:" (@maxWidthTabletLandscape + (@tabletMargin * 2)) ~")";
+    @mobile:          ~"only screen and (max-width:" (@maxWidthTabletPortait + (@mobileMargin * 2 )) ~")";
 
 
 	// Fonts defaults values
 	// --------------------------------
 
 	@font-size-default:   62.5%;
-	@font-family-default : "Arial";
+	@font-family-default : "Arial", "serif";
 
 
 
@@ -74,7 +82,22 @@
 
 /*
  * ================================================================
+ * Elements
+ * ================================================================
+*/
+
+
+html {
+	font-size:@font-size-default;
+	font-family:@font-family-default;
+}
+
+
+/*
+ * ================================================================
  * Classes
  * ================================================================
 */
+
+
 
